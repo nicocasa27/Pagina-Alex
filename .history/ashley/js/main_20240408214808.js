@@ -129,8 +129,126 @@ $(function () {
                 }
             }
         });
-
         
+         // Initialize swiper for '.slidervila'
+    var swiperVila = new Swiper('.slidervila', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        speed: 800,
+        parallax: true,
+        navigation: {
+            nextEl: '.mil-portfolio-next',
+            prevEl: '.mil-portfolio-prev',
+        },
+        pagination: {
+            el: '.swiper-portfolio-pagination',
+            type: 'fraction',
+        },
+        on: {
+            init: function() {
+                updateSlideInfo(this);
+            },
+            slideChange: function() {
+                updateSlideInfo(this);
+            }
+        }
+    });
+
+
+    // Assume '.slidereva' is another slider that also needs the update function
+    var swiperEva = new Swiper('.slidereva', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        speed: 800,
+        parallax: true,
+        navigation: {
+            nextEl: '.mil-portfolio-next',
+            prevEl: '.mil-portfolio-prev',
+        },
+        pagination: {
+            el: '.swiper-portfolio-pagination',
+            type: 'fraction',
+        },
+        on: {
+            init: function() {
+                updateSlideInfo(this);
+            },
+            slideChange: function() {
+                updateSlideInfo(this);
+            }
+        }
+    });
+
+
+    var mySwiper = new Swiper('.mil-reviews-slider', {
+        // If we need pagination
+        pagination: {
+            el: '.mil-revi-pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (menu[index]) + '</span>';
+            },
+        },
+        speed: 800,
+        effect: 'fade',
+        parallax: true,
+        navigation: {
+            nextEl: '.mil-revi-next',
+            prevEl: '.mil-revi-prev',
+        },
+    })
+
+    var swiper = new Swiper('.mil-infinite-show', {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        speed: 5000,
+        autoplay: true,
+        autoplay: {
+            delay: 0,
+        },
+        loop: true,
+        freeMode: true,
+        breakpoints: {
+            992: {
+                slidesPerView: 4,
+            },
+        },
+    });
+
+    var swiper = new Swiper('.mil-portfolio-slider', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        speed: 800,
+        parallax: true,
+        mousewheel: {
+            enable: true
+        },
+        navigation: {
+            nextEl: '.mil-portfolio-next',
+            prevEl: '.mil-portfolio-prev',
+        },
+        pagination: {
+            el: '.swiper-portfolio-pagination',
+            type: 'fraction',
+        },
+    });
+
+
+    var swiper = new Swiper('.mil-1-slider', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        speed: 800,
+        parallax: true,
+        navigation: {
+            nextEl: '.mil-portfolio-next',
+            prevEl: '.mil-portfolio-prev',
+        },
+        pagination: {
+            el: '.swiper-portfolio-pagination',
+            type: 'fraction',
+        },
+    });
+
         // Inicializa aquí otros sliders si los hay
     }
     
@@ -587,45 +705,14 @@ $(function () {
     ***************************/
 
     var menu = ['<div class="mil-custom-dot mil-slide-1"></div>', '<div class="mil-custom-dot mil-slide-2"></div>', '<div class="mil-custom-dot mil-slide-3"></div>', '<div class="mil-custom-dot mil-slide-4"></div>', '<div class="mil-custom-dot mil-slide-5"></div>', '<div class="mil-custom-dot mil-slide-6"></div>', '<div class="mil-custom-dot mil-slide-7"></div>']
-    var mySwiper = new Swiper('.mil-reviews-slider', {
-        // If we need pagination
-        pagination: {
-            el: '.mil-revi-pagination',
-            clickable: true,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + '">' + (menu[index]) + '</span>';
-            },
-        },
-        speed: 800,
-        effect: 'fade',
-        parallax: true,
-        navigation: {
-            nextEl: '.mil-revi-next',
-            prevEl: '.mil-revi-prev',
-        },
-    })
+    
 
     /***************************
 
     infinite slider
 
     ***************************/
-    var swiper = new Swiper('.mil-infinite-show', {
-        slidesPerView: 2,
-        spaceBetween: 30,
-        speed: 5000,
-        autoplay: true,
-        autoplay: {
-            delay: 0,
-        },
-        loop: true,
-        freeMode: true,
-        breakpoints: {
-            992: {
-                slidesPerView: 4,
-            },
-        },
-    });
+   
 
     /***************************
 
@@ -656,53 +743,9 @@ $(function () {
         document.querySelector('.mil-info .style').textContent = style;
     }
     
-    // Initialize swiper for '.slidervila'
-    var swiperVila = new Swiper('.slidervila', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        speed: 800,
-        parallax: true,
-        navigation: {
-            nextEl: '.mil-portfolio-next',
-            prevEl: '.mil-portfolio-prev',
-        },
-        pagination: {
-            el: '.swiper-portfolio-pagination',
-            type: 'fraction',
-        },
-        on: {
-            init: function() {
-                updateSlideInfo(this);
-            },
-            slideChange: function() {
-                updateSlideInfo(this);
-            }
-        }
-    });
+   
     
-    // Assume '.slidereva' is another slider that also needs the update function
-    var swiperEva = new Swiper('.slidereva', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        speed: 800,
-        parallax: true,
-        navigation: {
-            nextEl: '.mil-portfolio-next',
-            prevEl: '.mil-portfolio-prev',
-        },
-        pagination: {
-            el: '.swiper-portfolio-pagination',
-            type: 'fraction',
-        },
-        on: {
-            init: function() {
-                updateSlideInfo(this);
-            },
-            slideChange: function() {
-                updateSlideInfo(this);
-            }
-        }
-    });
+    
     
 
 //////
@@ -1112,42 +1155,13 @@ $(function () {
         portfolio slider
 
         ***************************/
-        var swiper = new Swiper('.mil-portfolio-slider', {
-            slidesPerView: 1,
-            spaceBetween: 0,
-            speed: 800,
-            parallax: true,
-            mousewheel: {
-                enable: true
-            },
-            navigation: {
-                nextEl: '.mil-portfolio-next',
-                prevEl: '.mil-portfolio-prev',
-            },
-            pagination: {
-                el: '.swiper-portfolio-pagination',
-                type: 'fraction',
-            },
-        });
+        
         /***************************
 
         1 item slider
 
         ***************************/
-        var swiper = new Swiper('.mil-1-slider', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            speed: 800,
-            parallax: true,
-            navigation: {
-                nextEl: '.mil-portfolio-next',
-                prevEl: '.mil-portfolio-prev',
-            },
-            pagination: {
-                el: '.swiper-portfolio-pagination',
-                type: 'fraction',
-            },
-        });
+        
         /***************************
 
         2 item slider

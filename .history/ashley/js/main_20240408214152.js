@@ -129,8 +129,6 @@ $(function () {
                 }
             }
         });
-
-        
         // Inicializa aquí otros sliders si los hay
     }
     

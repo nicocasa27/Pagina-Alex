@@ -130,7 +130,30 @@ $(function () {
             }
         });
 
-        
+        var swiperVila = new Swiper('.slidervila', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            speed: 800,
+            parallax: true,
+            navigation: {
+                nextEl: '.mil-portfolio-next',
+                prevEl: '.mil-portfolio-prev',
+            },
+            pagination: {
+                el: '.swiper-portfolio-pagination',
+                type: 'fraction',
+            },
+            on: {
+                init: function() {
+                    updateSlideInfo(this);
+                },
+                slideChange: function() {
+                    updateSlideInfo(this);
+                }
+            }
+        });
+
+
         // Inicializa aquí otros sliders si los hay
     }
     

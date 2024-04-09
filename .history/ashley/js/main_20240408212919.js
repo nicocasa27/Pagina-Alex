@@ -103,103 +103,10 @@ $(function () {
 
     function initPage() {
         initAnimations();
-        initSwiperSliders();  // Asegúrate de que esta función se llame aquí
+        initSwiperSliders();
     }
     
-    function initSwiperSliders() {
-        var swiperVila = new Swiper('.slidervila', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            speed: 800,
-            parallax: true,
-            navigation: {
-                nextEl: '.mil-portfolio-next',
-                prevEl: '.mil-portfolio-prev',
-            },
-            pagination: {
-                el: '.swiper-portfolio-pagination',
-                type: 'fraction',
-            },
-            on: {
-                init: function() {
-                    updateSlideInfo(this);
-                },
-                slideChange: function() {
-                    updateSlideInfo(this);
-                }
-            }
-        });
-
-        
-        // Inicializa aquí otros sliders si los hay
-    }
-    
-
-
-    function initAnimations() {
-        // Verificar la existencia de elementos para animar
-        if (document.querySelector('.mil-preloader-animation') && 
-            document.querySelector('.mil-animation-1 .mil-h3') &&
-            document.querySelector('.mil-reveal-box') &&
-            document.querySelector('.mil-animation-2 .mil-h3')) {
-            
-            var timeline = gsap.timeline();
-            
-            timeline.to(".mil-preloader-animation", { opacity: 1 });
-            
-            timeline.fromTo(".mil-animation-1 .mil-h3", 
-                { y: "30px", opacity: 0 }, 
-                { y: "0px", opacity: 1, stagger: 0.4 }
-            );
-            
-            timeline.to(".mil-animation-1 .mil-h3", 
-                { opacity: 0, y: '-30' }, 
-                "+=.3"
-            );
-            
-            timeline.fromTo(".mil-reveal-box", 
-                { opacity: 0 }, 
-                { opacity: 1, x: '-30' }
-            );
-            
-            timeline.to(".mil-reveal-box", 
-                { width: "100%", x: 0 }, 
-                "+=.1"
-            );
-            timeline.to(".mil-reveal-box", { right: "0" });
-            timeline.to(".mil-reveal-box", 
-                { width: "0%" }
-            );
-            
-            timeline.fromTo(".mil-animation-2 .mil-h3", 
-                { opacity: 0 }, 
-                { opacity: 1 }, 
-                "-=.5"
-            );
-            
-            timeline.to(".mil-animation-2 .mil-h3", 
-                { opacity: 0, y: '-30' }, 
-                "+=.5"
-            );
-            
-            timeline.to(".mil-preloader", 
-                { opacity: 0, ease: 'sine' }, 
-                "+=.2"
-            );
-            
-            timeline.fromTo(".mil-up", 
-                { opacity: 0, y: 40, scale: .98, ease: 'sine' }, 
-                { 
-                    y: 0, opacity: 1, scale: 1, 
-                    onComplete: function () {
-                        $('.mil-preloader').addClass("mil-hidden");
-                    }
-                }, 
-                "-=1"
-            );
-        }
-    }
-    
+   
     
     /***************************
 
